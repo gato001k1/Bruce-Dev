@@ -6,7 +6,9 @@
 void lorachat();
 void changeusername();
 void chfreq();
-
+void sndfile();
+void meshtastic();
+void jammyjammer();
 class LoRaMenu : public MenuItemInterface {
 public:
     LoRaMenu() : MenuItemInterface("LoRa") {}

@@ -6,9 +6,12 @@
 
 void LoRaMenu::optionsMenu() {
     options = {
-        {"Chat",             []() { lorachat(); }      },
-        {"Change username",  []() { changeusername(); }},
+        {"Legacy Chat",      []() { lorachat(); }      },
+        {"Meshtastic",       []() { meshtastic(); }    },
+        {"Change Username",  []() { changeusername(); }},
         {"Change Frequency", []() { chfreq(); }        },
+        {"Send File",        []() { sndfile(); }       },
+        {"Lora Jamming",     []() { jammyjammer(); }   }
     };
     addOptionToMainMenu();
     String txt = "LoRa";
