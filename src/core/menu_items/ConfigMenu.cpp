@@ -1,4 +1,5 @@
 #include "ConfigMenu.h"
+#include "../mykeyboard.h"
 #include "core/display.h"
 #include "core/i2c_finder.h"
 #include "core/main_menu.h"
@@ -31,6 +32,7 @@ void ConfigMenu::optionsMenu() {
             {"System Config", [this]() { systemMenu(); }   },
             {"Power",         [this]() { powerMenu(); }    },
         };
+
 #if !defined(LITE_VERSION)
         if (!appStoreInstalled()) {
             localOptions.push_back({"Install App Store", []() { installAppStoreJS(); }});
@@ -169,6 +171,7 @@ void ConfigMenu::systemMenu() {
             {"Startup App",                                                         [this]() { setStartupApp(); }        },
             {"Hide/Show Apps",                                                      [this]() { mainMenu.hideAppsMenu(); }},
             {"Clock",                                                               [this]() { setClock(); }             },
+            {String("Keyboard Language: ") + bruceConfig.keyboardLang,              [this]() { setKeyboardLanguage(); }  },
             {"Advanced",                                                            [this]() { advancedMenu(); }         },
             {"Back",                                                                []() {}                              },
         };
